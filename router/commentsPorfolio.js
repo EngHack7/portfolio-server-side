@@ -30,4 +30,13 @@ router.post("/comment", async (req, res) => {
   })
 });
 
+router.get('/allcomment',(req,res) =>{
+  commentsPorfolio.find((error,doc) =>{
+    if(error){
+      return res.status(409).json({ error : "error in dataBase"})
+    }
+    return res.json({result  : doc})
+  })
+})
+
 module.exports = router;
